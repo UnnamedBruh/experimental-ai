@@ -17,7 +17,7 @@ const setup = (function(inst = {
 			["ello", "ey", "i"],
 			[", there", ""],
 			["!", "."]
-		}
+		]
 	} // Respoding Heirarchy Base
 	const func = function(input = "") {
 		// Token id 1 is a greeting. the AI must respond to it carefully.
@@ -30,8 +30,8 @@ const setup = (function(inst = {
 						name: name.find(name => !!name)
 					}
 				}
-		]
-		let ai = "", i = 0, matches = input.match(regexes.regex).map(match => regexes.parse(match, /^(?:\w+)|(\w+)/g.match(match))); // 500 is the amount of tokens there should be.
+		}
+		let ai = "", i = 0, matches = Array.from(input.match(regexes.regex)).map(match => regexes.parse(match, Array.from(match.match(/^(?:\w+)|(\w+)/g)))); // 500 is the amount of tokens there should be.
 		// AI responds
 		let decisions = {
 			shouldGreet: false
